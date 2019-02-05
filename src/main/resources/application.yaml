@@ -1,0 +1,12 @@
+#cambiar el banner de spring
+#spring:
+ banner: 
+      location: classpath:/assets/banner.txt 
+
+#Commentario spring props
+
+#security prop.
+
+          
+      
+        
