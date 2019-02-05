@@ -4,7 +4,14 @@
 <meta charset="UTF-8"/>
 <title>Insert title here</title>
 </head>
-<body>
-		<h3>Ejemplo <span style="color: red;" th:text="${name}">!!! </span></h3>
+<body>	
+		<div style="display: block;  ">
+			<h3>Ejemplo NAME: 
+				<span style="color: red;" th:text="${persona.name}">!!! 
+				</span></h3>
+			<label>AGE: 
+			<p th:text="${persona.age}" style="color: gold;"></p>
+			</label>	
+		</div>
 </body>
 </html>

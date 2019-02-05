@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.jmb.model.Person;
+
 @Controller
 @RequestMapping("/example")
 public class ExmpleController {
@@ -20,7 +22,8 @@ public class ExmpleController {
 	@GetMapping("/exampleString")
 	public String exampleString(Model model) {
 	
-		model.addAttribute("name", "Rambo =)");				
+		
+		model.addAttribute("persona", new Person("Rambo", 40));				
 		return EXAMPLE_VIEW;
 	}
 	
@@ -30,7 +33,7 @@ public class ExmpleController {
 	public ModelAndView exampleModelAndView() {
 		ModelAndView mod = new ModelAndView(EXAMPLE_VIEW);
 		
-		mod.addObject("name", "Predator II");
+		mod.addObject("persona", new Person("Predator II", 4350));
 		
 		return mod;
 				//new ModelAndView(EXAMPLE_VIEW);
