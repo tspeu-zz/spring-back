@@ -1,5 +1,8 @@
 package com.jmb.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +26,9 @@ public class ExmpleController {
 	public String exampleString(Model model) {
 	
 		
-		model.addAttribute("persona", new Person("Rambo", 40));				
+//		model.addAttribute("persona", new Person("Rambo", 40));			
+		model.addAttribute("persona", getListaPersonas());				
+
 		return EXAMPLE_VIEW;
 	}
 	
@@ -33,11 +38,26 @@ public class ExmpleController {
 	public ModelAndView exampleModelAndView() {
 		ModelAndView mod = new ModelAndView(EXAMPLE_VIEW);
 		
-		mod.addObject("persona", new Person("Predator II", 4350));
+//		mod.addObject("persona", new Person("Predator II", 4350));
+		mod.addObject("persona", getListaPersonas());	
 		
 		return mod;
 				//new ModelAndView(EXAMPLE_VIEW);
 	}
 	
+	
+	private List<Person> getListaPersonas() {
+		
+		List<Person> people = new ArrayList<>();
+		
+		people.add(new Person("Ozzy Osbourne", 65));
+		people.add(new Person("James Heatfild", 55));
+		people.add(new Person("Izz Stradlin ", 54));
+		people.add(new Person("Jimy Hendrix", 89));
+
+
+		return people;
+		
+	}
 	
 }

@@ -5,6 +5,7 @@
 <title>Insert title here</title>
 </head>
 <body>	
+<!-- 
 		<div style="display: block;  ">
 			<h3>Ejemplo NAME: 
 				<span style="color: red;" th:text="${persona.name}">!!! 
@@ -12,6 +13,25 @@
 			<label>AGE: 
 			<p th:text="${persona.age}" style="color: gold;"></p>
 			</label>	
+		</div>
+ -->
+		
+		<div style="text-align: center;">
+			<h1 style="color: pink;">LISTAS ->022</h1>
+			<table style="text-align: center; border: 1px; border-color:blue; border-style:solid;">
+				<thead>
+					<tr >
+						<th>NAME:</th>
+						<th>EDAD:</th>
+					</tr>
+				</thead>
+				<tbody th:each="person: ${persona}">
+					<tr>
+						<th th:text="${person.name}"></th>
+						<th th:text="${person.age}"></th>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 </body>
 </html>
