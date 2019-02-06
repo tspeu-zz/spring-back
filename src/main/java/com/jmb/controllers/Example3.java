@@ -1,5 +1,7 @@
 package com.jmb.controllers;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +19,10 @@ public class Example3 {
 	
 	public static final String FORM_VIEW = "formulario";
 	public static final String RESULT_VIEW = "resultado";
+	
+	//LOG
+	
+	private static final Log LOGGER = LogFactory.getLog(Example3.class);
 
 	/////////////////////////////////////////////////////////////////
 	//REDIRECCIONAR CUANDO EL URL ES SOLO LA RAIZ
@@ -41,7 +47,11 @@ public class Example3 {
 	//ESTO GENERA LA VISTA DEL FORM
 	@GetMapping("/showform")
 	public String showForm(Model mod) {
-		
+		LOGGER.info("ALGO DE INFO" + mod.toString());
+		LOGGER.warn("ALGO DE WARNING->");
+		LOGGER.error("ERORES--->");
+		LOGGER.debug("DEBUG--->");
+
 		mod.addAttribute("person", new Person());
 		return FORM_VIEW;
 	}
@@ -49,8 +59,13 @@ public class Example3 {
 	///GENERA EL RESULTADO DE LA VISTA
 	@PostMapping("/addPerson")
 	public ModelAndView addPerson(@ModelAttribute("RESULT_VIEW") Person persona) {
+		
+		LOGGER.info("addPerson  -- @PARAMS:" + persona.toString());
+		
 		ModelAndView mod = new ModelAndView(RESULT_VIEW);
 		mod.addObject("person", persona);
+		
+		LOGGER.info("TEMPLATE: RESULT_VIEW  -- DATA:" + persona.toString());
 		return mod;
 		
 	}
