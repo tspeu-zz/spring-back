@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 @RequestMapping("/example2")
@@ -13,6 +14,14 @@ public class ExampleGetController {
 
 		private static final String EXAMPLE_2 = "example2";
 	
+		
+		//(USANDO OBJETO REDIRECT
+		@GetMapping("/")
+		public RedirectView redirect() {
+			
+			return new RedirectView("/example2/uno");
+		}
+		
 		
 		//localhost:8080/example2/uno?nm=Pepe
 		@GetMapping("/uno")

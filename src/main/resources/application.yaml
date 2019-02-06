@@ -1,7 +1,12 @@
 #cambiar el banner de spring
 #spring:
  banner: 
-      location: classpath:/assets/banner.txt 
+      location: classpath:/assets/banner.txt
+#---
+#server:
+#  error:
+#    whitelabel:
+#      enabled:true
 
 #Commentario spring props
 
