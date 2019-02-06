@@ -1,9 +1,12 @@
 package com.jmb.controllers;
 
+import javax.validation.Valid;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -58,12 +61,27 @@ public class Example3 {
 	
 	///GENERA EL RESULTADO DE LA VISTA
 	@PostMapping("/addPerson")
-	public ModelAndView addPerson(@ModelAttribute("RESULT_VIEW") Person persona) {
-		
+	public ModelAndView addPerson(@Valid @ModelAttribute("person") Person persona, BindingResult bindingResult) {
+	
 		LOGGER.info("addPerson  -- @PARAMS:" + persona.toString());
 		
-		ModelAndView mod = new ModelAndView(RESULT_VIEW);
-		mod.addObject("person", persona);
+		ModelAndView mod = new ModelAndView();
+		LOGGER.warn("------bindingResult getAllErrors->"  +  bindingResult.getAllErrors());
+		LOGGER.warn("------bindingResult getObjectName->"  +  bindingResult.getObjectName());
+		LOGGER.warn("------bindingResult toString->"  +  bindingResult.toString());
+		
+			if(bindingResult.hasErrors()) {
+				
+				LOGGER.info("addPerson  -- ERROR VALIDACION:" + persona.toString());
+				mod.setViewName(FORM_VIEW);
+				
+			} else {
+				
+				mod.setViewName(RESULT_VIEW);
+				mod.addObject("person", persona);
+			}
+		
+		
 		
 		LOGGER.info("TEMPLATE: RESULT_VIEW  -- DATA:" + persona.toString());
 		return mod;

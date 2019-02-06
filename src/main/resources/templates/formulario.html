@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8"/>
-<title>Insert title here</title>
+<title>FORMULARIO JMB</title>
 </head>
 <body>
 	 <div >
@@ -11,10 +11,17 @@
 		<form action="#" th:action="@{/example3/addPerson}" th:object="${person}" method="post">
 		
 			<p><label>NOMBRE:</label>
-			<input tye="text"  th:field="*{name}"/></p>
+			<input tye="text"  th:field="*{name}"/>
+				<!--VALIDA ERRORES  -->
+				<p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name has errors</p>
+			</p>
+		
 			
 			<p><label>EDAD:</label>
 			<input tye="number" th:field="*{age}"/></p>
+			
+				<!--VALIDA ERRORES  -->
+				<p th:if="${#fields.hasErrors('age')}" th:errors="*{age}">EDAD has errors</p>
 			
 			<br/>
 			<input type="submit"  value="enviar"/>
