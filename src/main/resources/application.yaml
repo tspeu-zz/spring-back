@@ -12,6 +12,19 @@
 
 #security prop.
 
-          
+---
+spring:
+  datasource:
+    url: 'jdbc:mysql://localhost:3306/mydb'
+    username: root
+    password: 
+---      
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: udpate
+      naming:
+        strategy: org.hibernate.cfg.ImprovedNamingStartegy
+      database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
       
         

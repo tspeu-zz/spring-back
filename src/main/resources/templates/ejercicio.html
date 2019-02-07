@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>EJERCICIO 36 JM_B</title>
+</head>
+<body>
+
+    <div>
+        <h1> EJERCICIO</h1> 
+                                    <!-- th:object="${person}" -->
+        <form action="#" th:action="@{/ejercicio/dos}"  method="post">
+
+           	<p><label>MENSAJE:</label>
+			<input tye="text"  th:text="*{mensaje}"/>
+				<!--VALIDA ERRORES  -->
+				<!-- <p th:if="${#fields.hasErrors('mensaje')}" th:errors="*{mensaje}">Name has errors</p> -->
+			</p>
+		 
+            <br/>
+			<input type="submit"  value="enviar MENSAJE"/>
+        </form>
+    </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Lista de Cursos</title>
+
+    <style>
+
+        table, th, td {
+                border: 1px solid greenyellow;
+                background: lightsalmon;
+                text-align: center; 
+                padding: 5px 8px;
+        }
+
+        thead th{
+            color:blue;
+            font-size: 2em;
+        }
+    
+
+         tbody th{
+            color:grey;
+            font-size: 1em;
+        }
+    
+
+
+    </style>
+
+</head>
+<body>
+
+    
+    <div style="background: linen;">
+
+			<h1 style="color: lightgray;">LISTAS DE CURSOS</h1>
+			<table>
+				<thead>
+					<tr>
+						<th>NAME:</th>
+                        <th>DESCRIPCION:</th>
+                        <th>PRECIO:</th>
+                        <th>HORAS:</th>
+					</tr>
+				</thead>
+				<tbody th:each="course: ${courses}">
+					<tr>
+						<th>    <span th:text="${course.name}"></span>      </th>
+                        <th>    <span th:text="${course.description}"></span> </th>
+                        <th>    <span th:text="${course.price}"></span>     </th>
+                        <th>    <span th:text="${course.hours}"></span>     </th>
+					</tr>
+				</tbody>
+			</table>
+        </div>
+        
+
+        <div style=" padding: 2% 2%;">
+            <h1>DAR DE ALTA UN CURSO</h1>
+            <form action="#"  th:action="@{/courses/add}" th:object="${course}" method="post">
+
+                <p>NAME: <input th:field="${course.name}"/> </p>
+                <p>DESCRIPCION: <input th:field="${course.description}"/> </p>
+                <p>PRECIO: <input th:field="${course.price}"/> </p>
+                <p>HORAS: <input th:field="${course.hours}"/> </p>
+
+
+                <p>
+                    <input type="submit" value="DAR DE ALTA COURSE" />
+
+                </p>
+
+        </form>
+
+
+        </div>
+
+
+</body>
+</html>
