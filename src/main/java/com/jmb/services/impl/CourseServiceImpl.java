@@ -1,5 +1,6 @@
 package com.jmb.services.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -8,8 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.jmb.controllers.CourseController;
+import com.jmb.converter.CourseConverter;
 import com.jmb.entity.Course;
+import com.jmb.model.CourseModel;
 import com.jmb.repository.CourseJpaRepository;
 import com.jmb.services.CourseService;
 
@@ -24,14 +26,18 @@ public class CourseServiceImpl  implements CourseService{
 	@Qualifier("courseJpaRepository")
 	private CourseJpaRepository courseRepository;
 	
+	@Autowired
+	private CourseConverter converter;
 	
 
 	@Override
-	public List<Course> ListAllCourses() {
+	public List<CourseModel> ListAllCourses() {
 		
 		LOG.info("CourseService -- ListAllCourses()");
 		
-		return courseRepository.findAll();
+		//List<Course> listCourseEntity =  courseRepository.findAll(); 
+		
+		return  converter.listEntityToModel(courseRepository.findAll());
 	}
 
 	@Override
@@ -40,14 +46,18 @@ public class CourseServiceImpl  implements CourseService{
 		return courseRepository.findOne(id);
 	}
 
+	/*ADD */
 	@Override
-	public Course addCourse(Course course) {
+	public Course addCourse(CourseModel CourseModel) {
 		
 		LOG.info("CourseService -- addCourse()");
 		
-		return courseRepository.save(course);
+		//CONVIERTE A ENTITY EL MODEL DE LA VIEW
+		return courseRepository.save(converter.modelToEntity(CourseModel));
 	}
 
+	
+	
 	@Override
 	public int deleteCourse(int id) {
 		courseRepository.delete(id);

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jmb.entity.Course;
+import com.jmb.model.CourseModel;
 import com.jmb.services.CourseService;
 
 @Controller
@@ -28,6 +29,7 @@ public class CourseController {
 	
 	
 	
+	
 	/* LISTAR TODOS LOS CURSOS */
 	@RequestMapping("/list")
 	public ModelAndView getAllCourses() {
@@ -37,8 +39,9 @@ public class CourseController {
 		ModelAndView mod = new ModelAndView(COURSES_VIEW);
 		
 		 mod.addObject("courses", courseService.ListAllCourses());
- //OJO HACE FALTA PARA AÑDAIR EN AL FORM ADD
-		 mod.addObject("course", new Course());
+		 
+		 //TODO OJO HACE FALTA PARA AÑDAIR EN AL FORM ADD
+		 mod.addObject("course", new CourseModel());
 		
 		return mod;
 	}
@@ -47,7 +50,7 @@ public class CourseController {
 	
 	/*ADD NUEVO CURSO *"PARAMS CURSO  */
 	@PostMapping("/add")
-	public String addCourse(@ModelAttribute("course") Course course) {
+	public String addCourse(@ModelAttribute("course") CourseModel course) {
 		
 		LOG.info("ENTRA addCourse()  -- PARAM" + course.toString());
 		
