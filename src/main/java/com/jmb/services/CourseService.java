@@ -10,7 +10,7 @@ public interface CourseService {
 	public abstract List<CourseModel>ListAllCourses();
 	
 	//TODO
-	public abstract Course detalleCourse(int id);
+	public abstract CourseModel detalleCourse(int id);
 	
 	
 	//TODO 

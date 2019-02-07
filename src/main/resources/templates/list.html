@@ -42,21 +42,26 @@
                         <th>DESCRIPCION:</th>
                         <th>PRECIO:</th>
                         <th>HORAS:</th>
+                         <th style="color:green;"> + + </th>
+                         <th style="color:red;"> - -  </th>
 					</tr>
 				</thead>
 				<tbody th:each="course: ${courses}">
 					<tr>
-						<th>    <span th:text="${course.name}"></span>      </th>
+                        <th>    <span th:text="${course.name}"></span>       </th>
                         <th>    <span th:text="${course.description}"></span> </th>
                         <th>    <span th:text="${course.price}"></span>     </th>
                         <th>    <span th:text="${course.hours}"></span>     </th>
+                        <th>    <a href="/courses/detalle" style="color:green;">EDITAR</a> </th>
+                        <!-- th:text="${course.id}" -->
+                        <th>    <a href="/courses/list" style="color:red;">ELIMNINAR</a> </th>
 					</tr>
 				</tbody>
 			</table>
-        </div>
+    </div>
         
 
-        <div style=" padding: 2% 2%;">
+    <div style=" padding: 2% 2%;">
             <h1>DAR DE ALTA UN CURSO</h1>
             <form action="#"  th:action="@{/courses/add}" th:object="${course}" method="post">
 
@@ -74,7 +79,7 @@
         </form>
 
 
-        </div>
+    </div>
 
 
 </body>

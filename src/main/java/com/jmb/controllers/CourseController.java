@@ -5,6 +5,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,8 @@ public class CourseController {
 	
 	
 	private static final String COURSES_VIEW = "list";
+	private static final String COURSES_DETALLE = "coursodetalle";
+
 	
 	@Autowired
 	@Qualifier("courseService")
@@ -58,6 +61,22 @@ public class CourseController {
 		
 		return "redirect:/courses/list";
 	}
+	
+	
+	
+	/*DETALLE PARMS: ID*/
+//	@GetMapping("/detalle")
+	@RequestMapping("/detalle")
+	public ModelAndView detalleCourse(int id) {
+		
+		
+		ModelAndView mod = new ModelAndView(COURSES_DETALLE);
+//		mod.addObject("id_curso", id);
+		
+		return mod;
+//				"redirect:/courses/detalle";
+	}
+	
 	
 	
 	

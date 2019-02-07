@@ -41,9 +41,9 @@ public class CourseServiceImpl  implements CourseService{
 	}
 
 	@Override
-	public Course detalleCourse(int id) {
+	public CourseModel detalleCourse(int id) {
 		
-		return courseRepository.findOne(id);
+		return converter.entityToModel(courseRepository.findById(id));
 	}
 
 	/*ADD */

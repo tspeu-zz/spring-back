@@ -13,6 +13,8 @@ import com.jmb.entity.Course;
 @Repository("courseJpaRepository")
 public interface CourseJpaRepository  extends JpaRepository<Course, Serializable> {
 	
+	public abstract Course findById(int id);
+	
 //	public abstract Course findByPrice(int price);
 //	
 //	public abstract Course findByPriceAndName(int price, String name);
