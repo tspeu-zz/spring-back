@@ -17,19 +17,28 @@
   <body>
 
     <div class="container">
-
-      <form class="form-signin">
+                                                            <!--el objeto que va a recoger, el POJO el modelo  -->
+      <form class="form-signin" action="#"  th:action="@{/logincheck}" th:object="${user}" method="post">
         <h2 class="form-signin-heading">Sign in</h2>
+
         <label for="inputEmail" class="sr-only">Username</label>
-        <input type="text" id="inputUsername" class="form-control" placeholder="Username"/>
+        <input type="text" id="inputUsername" class="form-control" placeholder="Username"
+                           th:field="*{username}"/>
+
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password"/>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password"
+                                th:field="*{password}"/>
+
+        <div class="alert alert-danger" th:if="${error !=null}"> INVALIDA USER /PASSWORD</div>
+        <div class="alert alert-info" th:if="${logout !=null}"> Logout successfully!</div>
+
         <button class="btn btn-lg btn-primary btn-block" type="submit">
         	<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Sign in
         </button>
       </form>
 
-    </div> <!-- /container -->
+    </div> 
+    <!-- /container -->
 
 </body>
 </html>

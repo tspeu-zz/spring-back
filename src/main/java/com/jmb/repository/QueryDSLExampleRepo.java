@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.jmb.entity.Course;
-import com.jmb.entity.QCourse;
+
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.Predicate;
 import com.querydsl.jpa.impl.JPAQuery;
@@ -17,15 +17,17 @@ import com.querydsl.jpa.impl.JPAQuery;
 @Repository("queryDSLexampleRepo")
 public class QueryDSLExampleRepo {
 
-	private QCourse qCourse = QCourse.course;
+	
+	//private QCourse qCourse = QCourse.course;
 	
 	//persistencia de la app
 	@PersistenceContext
 	private EntityManager em;
 	
-	@Autowired
-	private JPAQuery<Course> query;
+	//@Autowired
+	//private JPAQuery<Course> query;
 	
+	/*
 	//eje
 	public void find(int id) {
 		
@@ -66,6 +68,6 @@ public class QueryDSLExampleRepo {
 		
 	}
 	
-	+
 	
+	*/
 }
