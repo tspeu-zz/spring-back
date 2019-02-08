@@ -52,10 +52,7 @@ public class LoginController {
 		if(user.getUsername().equals("user") && user.getPassword().equals("user")) {
 			
 			LOG.info("METHOD checkLogin() RETURNING contacts VIEW" );
-			return  ViewConstant.CONTACTS;
-			
-		} else {
-			
+			return  "redirect:/contacts/showcontacts";
 			
 		}
 		

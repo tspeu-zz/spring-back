@@ -21,17 +21,17 @@
 			<br/>
 			<form action="#" th:action="@{/contacts/addcontact}" th:object="${contact}" method="post">
                 First Name: 
-                    <input type="text" class="form-control" th:field="*{firstname}"/>
+                    <input type="text" max="150" class="form-control" th:field="*{firstname}"/>
            
 				<br/>
                 Last Name: 
-                    <input type="text" class="form-control" th:field="*{lastname}"/>
+                    <input type="text"  max="250" class="form-control" th:field="*{lastname}"/>
 				<br/>
                 Telephone: 
-                    <input type="text" class="form-control" th:field="*{telephone}"/>
+                    <input type="text" max="12" class="form-control" th:field="*{telephone}"/>
 				<br/>
                 City:
-                    <input type="text" class="form-control" th:field="*{city}"/>
+                    <input type="text"  max="99" class="form-control" th:field="*{city}"/>
 				<br/>
 				<br/>
 				<button class="btn btn-lg btn-secondary btn-block" type="submit">

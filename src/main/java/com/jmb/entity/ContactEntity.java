@@ -76,4 +76,8 @@ public class ContactEntity {
 				+ city + "]";
 	}
 
+	public int getId() {
+		return id;
+	}
+
 }
