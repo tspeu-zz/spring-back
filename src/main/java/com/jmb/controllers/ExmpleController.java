@@ -1,12 +1,13 @@
 package com.jmb.controllers;
 
-import java.util.List;
+//import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jmb.component.EjemploComponent;
-import com.jmb.component.ReqTimeInterceptor;
-import com.jmb.model.Person;
+//import com.jmb.component.ReqTimeInterceptor;
+//import com.jmb.model.Person;
 import com.jmb.services.ExampleService;
 
 @Controller

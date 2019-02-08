@@ -1,18 +1,18 @@
 package com.jmb.repository;
 
-import java.util.List;
+//import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.jmb.entity.Course;
-
-import com.querydsl.core.BooleanBuilder;
-import com.querydsl.core.types.Predicate;
-import com.querydsl.jpa.impl.JPAQuery;
+//import com.jmb.entity.Course;
+//
+//import com.querydsl.core.BooleanBuilder;
+//import com.querydsl.core.types.Predicate;
+//import com.querydsl.jpa.impl.JPAQuery;
 
 @Repository("queryDSLexampleRepo")
 public class QueryDSLExampleRepo {

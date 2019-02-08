@@ -11,7 +11,7 @@
     <!-- Custom styles for this template -->
     <link href="#" th:href="@{/css/style.css}" rel="stylesheet" />
     
- 	<link href="#" th:href="@{/css/contacts.css}" rel="stylesheet" />
+ 	<!-- <link href="#" th:href="@{/css/contacts.css}" rel="stylesheet" /> -->
  	
   </head>
 
@@ -71,11 +71,16 @@
 				</tbody>
 			</table>
 		</div>
-		
-		<button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Add contact</button>
         
-        <a href="#" th:href="@{/login?logout}">
+    <!-- AVISO ADD OK -->
+        <div class="alert alert-success" th:if="${result ==1 }">Contact Added succesfully!!</div>
 
+
+        <a href="#" th:href="@{/contacts/contactform}">
+            <button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Add contact</button>        
+        </a>
+
+        <a href="#" th:href="@{/login?logout}">
             <button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</button>
         </a>
 	

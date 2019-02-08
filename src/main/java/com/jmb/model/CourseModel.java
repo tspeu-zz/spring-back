@@ -1,7 +1,6 @@
 package com.jmb.model;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
+
 
 public class CourseModel {
 

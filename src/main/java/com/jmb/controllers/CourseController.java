@@ -5,13 +5,13 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+//import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.jmb.entity.Course;
+//import com.jmb.entity.Course;
 import com.jmb.model.CourseModel;
 import com.jmb.services.CourseService;
 
@@ -29,8 +29,6 @@ public class CourseController {
 	@Autowired
 	@Qualifier("courseService")
 	private CourseService courseService;
-	
-	
 	
 	
 	/* LISTAR TODOS LOS CURSOS */
