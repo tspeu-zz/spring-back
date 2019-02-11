@@ -4,12 +4,19 @@
 	<title>Backend Ninja - Add/modify Contact</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<!-- <link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" /> -->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" 
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"/>
+
 
     <link href="#" th:href="@{/css/style.css}" rel="stylesheet" />
 </head>
@@ -19,29 +26,34 @@
 		<div class="container">
 			<h1>Contact Form</h1>
 			<br/>
-			<form action="#" th:action="@{/contacts/addcontact}" th:object="${contact}" method="post">
+            <form action="#" th:action="@{/contacts/addcontact}" th:object="${contact}" method="post">
+                
+                <input type="hidden" th:field="*{id}"/>
                 First Name: 
-                    <input type="text" max="150" class="form-control" th:field="*{firstname}"/>
-           
+                    <input type="text" max="150" class="form-control" th:field="*{firstname}"  th:value="${firstname}" />
+           <!--  -->
 				<br/>
                 Last Name: 
-                    <input type="text"  max="250" class="form-control" th:field="*{lastname}"/>
+                    <input type="text"  max="250" class="form-control" th:field="*{lastname}"  th:value="${lastname}"/>
 				<br/>
                 Telephone: 
-                    <input type="text" max="12" class="form-control" th:field="*{telephone}"/>
+                    <input type="text" max="12" class="form-control" th:field="*{telephone}"  th:value="${telephone}"/>
 				<br/>
                 City:
-                    <input type="text"  max="99" class="form-control" th:field="*{city}"/>
+                    <input type="text"  max="99" class="form-control" th:field="*{city}"  th:value="${city}"/>
 				<br/>
 				<br/>
-				<button class="btn btn-lg btn-secondary btn-block" type="submit">
-					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Accept
+				<button class="btn btn-lg btn-success btn-block my-2" type="submit">
+                    <!-- <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  -->
+                    <i class="fas fa-check"/> Accept
 				</button>
             </form>
             
             <a href="#" th:href="@{/contacts/cancel}">
 				<button class="btn btn-lg btn-danger btn-block" type="submit">
-                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel
+                    <!-- <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  -->
+                    <i class="fas fa-ban"/>
+                    Cancel
 				</button>
             </a>
 		</div>

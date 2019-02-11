@@ -8,4 +8,5 @@ import com.jmb.entity.ContactEntity;
 @Repository("contactRepository")
 public interface ContactRepository extends JpaRepository<ContactEntity , Serializable> {
 
+		public abstract ContactEntity findById(int id);
 }
