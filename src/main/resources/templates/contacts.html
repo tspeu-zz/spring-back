@@ -26,9 +26,9 @@
 	
 	<div class="container">
 	
-		<h1>Hello, <span style="font-style: italic" th:text="${username}"></span>!</h1>
+		<h1>Hello, <span style="font-style: italic" th:text="${username}"></span> ! </h1>
 		<br/>
-		<div class="panel panel-default">
+		<div class="panel panel-default card">
 			<div class="panel-heading"></div>
 			<table class="table">
 				<thead>
@@ -88,6 +88,11 @@
         </form>
 	
 	</div>
+
+    <a href="#" th:href="@{/rest/checkrest}">
+        
+        <h2>TEST REST</h2>
+    </a>
 
 
 </body>

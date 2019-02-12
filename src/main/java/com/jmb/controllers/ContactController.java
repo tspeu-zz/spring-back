@@ -20,18 +20,29 @@ import com.jmb.constant.ViewConstant;
 import com.jmb.model.ContactModel;
 import com.jmb.services.ContactService;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ContactController.
+ */
 //@PreAuthorize("permitAll()")
 @Controller
 @RequestMapping("/contacts")
 public class ContactController {
 	
+	/** The Constant LOG. */
 	private static final Log LOG = LogFactory.getLog(ContactController.class);
 	
+	/** The contact service. */
 	@Autowired
 	@Qualifier("contactService")
 	private ContactService contactService;
 	
 	
+	/**
+	 * Show all.
+	 *
+	 * @return the string
+	 */
 	@GetMapping("/contacts")
 	public String showAll() {
 		
@@ -40,12 +51,24 @@ public class ContactController {
 	
 	
 	
+	/**
+	 * Candel.
+	 *
+	 * @return the string
+	 */
 	@GetMapping("/cancel")
 	public String candel() {
 		
 		return "redirect:/contacts/showcontacts";
 	}
 	
+/**
+ * Edits the contact.
+ *
+ * @param id the id
+ * @param modelParmams the model parmams
+ * @return the string
+ */
 //	@PreAuthorize("hasRole('ROLE_USER')")
 	@GetMapping("/contactform")
 	private String editContact(@RequestParam(name="id", required=false) int id, 
@@ -78,6 +101,13 @@ public class ContactController {
 	}
 	
 	
+	/**
+	 * Adds the contact.
+	 *
+	 * @param model the model
+	 * @param modelParmams the model parmams
+	 * @return the string
+	 */
 	@PostMapping("/addcontact") 			//el atirbuto de la vista th:object="${contact}"
 	private String addContact(@ModelAttribute(name ="contact") ContactModel model,
 			Model modelParmams) {
@@ -95,6 +125,11 @@ public class ContactController {
 	
 	
 	
+	/**
+	 * Show contacts.
+	 *
+	 * @return the model and view
+	 */
 	@GetMapping("/showcontacts")
 	public ModelAndView showContacts() {
 		
@@ -110,6 +145,12 @@ public class ContactController {
 		
 	}
 	
+	/**
+	 * Delete contact.
+	 *
+	 * @param id the id
+	 * @return the model and view
+	 */
 	@GetMapping("/delete")
 	public ModelAndView deleteContact(@RequestParam(name="id", required=true) int id) {
 //		ModelAndView mod = new ModelAndView();

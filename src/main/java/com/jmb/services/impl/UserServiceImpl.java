@@ -5,11 +5,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.security.config.core.GrantedAuthorityDefaults;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,7 +15,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.jmb.entity.CustomUserDetail;
+//import com.jmb.entity.CustomUserDetail;
 //import com.jmb.entity.User;
 import com.jmb.entity.UserRole;
 import com.jmb.repository.UserRepository;
@@ -30,9 +28,9 @@ public class UserServiceImpl implements UserDetailsService{
 	private UserRepository userRepository;
 	
 	//@Autowired
-	private CustomUserDetail customUserDetail;
+//	private CustomUserDetail customUserDetail;
 	
-	private static final Log LOG = LogFactory.getLog(UserServiceImpl.class);
+//	private static final Log LOG = LogFactory.getLog(UserServiceImpl.class);
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

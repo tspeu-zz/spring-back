@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.jmb.controllers.EjercicioController;
 import com.jmb.converter.ContactConverter;
 import com.jmb.entity.ContactEntity;
 import com.jmb.model.ContactModel;

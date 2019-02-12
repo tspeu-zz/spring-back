@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.jmb.constant.ViewConstant;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class LoginController.
+ */
 @Controller
 //@RequestMapping("/")
 public class LoginController {
@@ -16,7 +20,8 @@ public class LoginController {
 //	private static final String LOGIN = "login"; 
 //	private static final String CONTACTS = "contacts"; 
 
-	private static final Log LOG = LogFactory.getLog(EjercicioController.class);
+	/** The Constant LOG. */
+private static final Log LOG = LogFactory.getLog(EjercicioController.class);
 
 //	@GetMapping("/")
 //	public String redirectLogin() {
@@ -24,7 +29,15 @@ public class LoginController {
 //		return "redirect:/login";
 //	}
 
-	@GetMapping("/login")
+	/**
+ * Show logion.
+ *
+ * @param model the model
+ * @param error the error
+ * @param logout the logout
+ * @return the string
+ */
+@GetMapping("/login")
 	public String showLogion(Model model, @RequestParam(name = "error", required = false) String error,
 			@RequestParam(name = "logout", required = false) String logout) {
 
@@ -37,6 +50,11 @@ public class LoginController {
 		return ViewConstant.LOGIN;
 	}
 
+	/**
+	 * Check login.
+	 *
+	 * @return the string
+	 */
 	@GetMapping({ "/loginsuccess", "/" })
 	public String checkLogin() {
 
