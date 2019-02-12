@@ -26,5 +26,8 @@ spring:
       naming:
         strategy: org.hibernate.cfg.ImprovedNamingStartegy
       database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+---
+  thymeleaf:
+    cache: false
       
         

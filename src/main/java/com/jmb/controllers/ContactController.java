@@ -43,7 +43,7 @@ public class ContactController {
 	 *
 	 * @return the string
 	 */
-	@GetMapping("/contacts")
+	@GetMapping("/")
 	public String showAll() {
 		
 		return "redirect:/contacts/showcontacts";
