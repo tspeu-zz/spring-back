@@ -4,6 +4,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,14 +23,14 @@ import com.jmb.services.ContactService;
 @RequestMapping("/contacts")
 public class ContactController {
 	
-	private static final Log LOG = LogFactory.getLog(EjercicioController.class);
+	private static final Log LOG = LogFactory.getLog(ContactController.class);
 	
 	@Autowired
 	@Qualifier("contactService")
 	private ContactService contactService;
 	
 	
-	@GetMapping("/")
+	@GetMapping("/contacts")
 	public String showAll() {
 		
 		return "redirect:/contacts/showcontacts";
@@ -43,7 +44,8 @@ public class ContactController {
 		return "redirect:/contacts/showcontacts";
 	}
 	
-	
+//	@PreAuthorize("hasRole('ROLE_USER')")
+	@PreAuthorize("permitAll()")
 	@GetMapping("/contactform")
 	private String editContact(@RequestParam(name="id", required=false) int id, 
 			Model modelParmams) {
